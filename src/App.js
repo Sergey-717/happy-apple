@@ -1,12 +1,12 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Posts from "./components/Posts";
+import ListOfCards from "./components/ListOfCards";
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/happy-apple" element={<Posts />}></Route>
+          <Route path="/happy-apple" element={<ListOfCards />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
