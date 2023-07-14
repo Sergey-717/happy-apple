@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/happy-apple/static/css/main.0191f242.css",
-    "main.js": "/happy-apple/static/js/main.22bb0f56.js",
+    "main.css": "/happy-apple/static/css/main.4c382a9d.css",
+    "main.js": "/happy-apple/static/js/main.61ba7dad.js",
     "static/js/787.37e1e340.chunk.js": "/happy-apple/static/js/787.37e1e340.chunk.js",
     "static/media/loadingProd.GIF": "/happy-apple/static/media/loadingProd.12dc43386b57ffa3ee0c.GIF",
     "index.html": "/happy-apple/index.html",
-    "main.0191f242.css.map": "/happy-apple/static/css/main.0191f242.css.map",
-    "main.22bb0f56.js.map": "/happy-apple/static/js/main.22bb0f56.js.map",
+    "main.4c382a9d.css.map": "/happy-apple/static/css/main.4c382a9d.css.map",
+    "main.61ba7dad.js.map": "/happy-apple/static/js/main.61ba7dad.js.map",
     "787.37e1e340.chunk.js.map": "/happy-apple/static/js/787.37e1e340.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0191f242.css",
-    "static/js/main.22bb0f56.js"
+    "static/css/main.4c382a9d.css",
+    "static/js/main.61ba7dad.js"
   ]
 }
