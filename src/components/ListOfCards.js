@@ -5,7 +5,7 @@ import loadingProd from "../../src/assets/loadingProd.GIF";
 import loadingCat from "../../src/assets/loadingCat.gif";
 
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbzbr8nbF1nJQyA8OdFoQeV2JktX_lUKLpNjQwMMdVXjXStE72zwWbAXRIlqF2vJMufS/exec";
+  "https://script.google.com/macros/s/AKfycbwjAQTw20JKJ6uvpTL1otJY6H_fEj_KeaV_1PcsZDpCxjVL8w7m6pSDH6gQoKtUCzE/exec";
 
 export default function ListOfCards(props) {
   const [categories, setCategories] = useState([]);
@@ -57,6 +57,8 @@ export default function ListOfCards(props) {
         )}
       </div>
 
+      <hr />
+      <div>filtres</div>
       <hr />
       {isLoadingProducts ? (
         <img src={loadingProd} className="loadingGif" alt="loading..." />

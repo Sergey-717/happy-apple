@@ -10,6 +10,8 @@
   border: 0;
   margin: 5px;
   cursor: pointer;
+  background-color: rgba(128, 128, 128, 0.3);
+  text-shadow: 1px 1px 2px rgb(128, 128, 128);
 }
 
 .products {
@@ -21,14 +23,39 @@
 
 .loadingGif {
   width: 100vw;
+  filter: invert(0.829);
 }
 
 .card {
   padding: 5px;
   border-radius: 10px;
-  border: 2px solid orange;
+  /* border: 1px solid orange; */
+  background-color: rgba(128, 128, 128, 0.3);
+  position: relative;
 }
-
+.card__name {
+  background: -webkit-linear-gradient(
+    45deg,
+    rgb(106, 0, 106) -20%,
+    rgb(255, 167, 181) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.card__description {
+  text-shadow: 1px 1px 2px rgb(116, 116, 116);
+}
 .new {
-  border: 2px solid green;
+  border: 1px solid green;
+}
+.card__new-border {
+  position: absolute;
+  top: -8px;
+  right: 2%;
+  font-family: "Orbitron", sans-serif;
+  color: lightgreen;
+  font-weight: bolder;
+  z-index: 10;
+  transition: 1s;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
 }
