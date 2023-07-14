@@ -1,8 +1,10 @@
-import Card from "./Card";
+import CardOfProduct from "./CardOfProduct";
 import { useEffect, useState } from "react";
 import "./style.css";
 import loadingProd from "../../src/assets/loadingProd.GIF";
-import loadingCat from "../../src/assets/loadingCat.gif";
+import RadioGroup from "./RadioGroup";
+import Categories from "./Categories";
+import { Card, Col, Row } from "antd";
 
 const API_URL =
   "https://script.google.com/macros/s/AKfycbwjAQTw20JKJ6uvpTL1otJY6H_fEj_KeaV_1PcsZDpCxjVL8w7m6pSDH6gQoKtUCzE/exec";
@@ -34,6 +36,7 @@ export default function ListOfCards(props) {
     const data = await response.json();
     setProducts(data.products);
     setIsLoadingProducts(false);
+    console.log(data);
   };
 
   if (error) {
@@ -45,29 +48,32 @@ export default function ListOfCards(props) {
         {isLoadingCategories ? (
           <h2>LOADING...</h2>
         ) : (
-          categories.map((category, i) => (
-            <button
-              className="categories__button"
-              onClick={() => setHandleProducts(category)}
-              key={i}
-            >
-              {category}
-            </button>
-          ))
+          <Categories
+            categories={categories}
+            setHandleProducts={setHandleProducts}
+          />
         )}
       </div>
 
-      <hr />
-      <div>filters</div>
-      <hr />
       {isLoadingProducts ? (
         <img src={loadingProd} className="loadingGif" alt="loading..." />
       ) : (
         <div className="products">
+          <RadioGroup />
           {products &&
-            products.map((product, i) => <Card key={i} {...product}></Card>)}
+            products.map((product, i) => (
+              <CardOfProduct key={i} {...product}></CardOfProduct>
+
+              // <Card size="small" title={product.model} bordered={false}>
+              //   <span>{product.memory}gb </span>
+              //   <span>{product.color}</span>
+              //   <p>{product.description}</p>
+              //   <p>{product.price}₽</p>
+              // </Card>
+            ))}
         </div>
       )}
+      <div className="footer">footer</div>
     </div>
   );
 }

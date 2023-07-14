@@ -1,5 +1,5 @@
 .categories {
-  margin: 6px 0;
+  margin: 8px 0;
   max-height: 80px;
   overflow: hidden;
 }
@@ -14,36 +14,56 @@
   text-shadow: 1px 1px 2px rgb(128, 128, 128);
 }
 
+.filters {
+  /* margin: 3px 0; */
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: space-evenly;
+}
+
+.filters__element {
+  display: flex;
+  gap: 2px;
+  padding: 4px;
+}
+
 .products {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 8px;
   padding: 10px;
+  /* background-color: rgb(177, 177, 177); */
 }
 
 .loadingGif {
   width: 100vw;
-  filter: invert(0.829);
 }
 
 .card {
-  padding: 5px;
-  border-radius: 10px;
-  /* border: 1px solid orange; */
-  background-color: rgba(128, 128, 128, 0.3);
+  padding: 6px;
+  border-radius: 8px;
+  border: 0.1px solid rgba(128, 128, 128, 0.413);
   position: relative;
+  background-color: white;
 }
 .card__name {
-  background: -webkit-linear-gradient(
+  /* background: -webkit-linear-gradient(
     45deg,
     rgb(106, 0, 106) -20%,
     rgb(255, 167, 181) 100%
   );
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent; */
+  margin-bottom: 10px;
 }
 .card__description {
-  text-shadow: 1px 1px 2px rgb(116, 116, 116);
+  /* text-shadow: 1px 1px 2px rgb(116, 116, 116); */
+  font-size: 14px;
+}
+.card__price {
+  font-weight: 500;
 }
 .new {
   border: 1px solid green;
