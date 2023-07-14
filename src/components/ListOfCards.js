@@ -58,7 +58,7 @@ export default function ListOfCards(props) {
       </div>
 
       <hr />
-      <div>filtres</div>
+      <div>filters</div>
       <hr />
       {isLoadingProducts ? (
         <img src={loadingProd} className="loadingGif" alt="loading..." />
