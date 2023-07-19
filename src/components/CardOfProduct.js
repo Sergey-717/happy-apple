@@ -4,7 +4,7 @@ export default function CardOfProduct(product) {
   const { model, memory, color, description, price, unused } = product;
 
   return (
-    <div className="card">
+    <div className="card" onClick={() => console.log("1")}>
       <span className="card__new-border">{unused && "NEW!"}</span>
       <h3 className="card__name">{model}</h3>
       <hr />

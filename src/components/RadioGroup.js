@@ -5,11 +5,11 @@ import { Radio } from "antd";
 const options = [
   {
     label: "New",
-    value: "new",
+    value: true,
   },
   {
     label: "Used",
-    value: "used",
+    value: false,
   },
   {
     label: "All",
@@ -27,11 +27,14 @@ const price = [
   },
 ];
 
-const RadioGroup = () => {
+const RadioGroup = ({ products, setProducts, setHandleProducts }) => {
   const [value1, setValue1] = useState("all");
   const [value2, setValue2] = useState();
+  const [localProducts, setLocalProducts] = useState(products);
+
   const onChange1 = ({ target: { value } }) => {
-    console.log("radio1 checked", value);
+    setLocalProducts([...products.filter((x) => x.unused === value)]);
+    console.log(products);
     setValue1(value);
   };
   const onChange2 = ({ target: { value } }) => {
