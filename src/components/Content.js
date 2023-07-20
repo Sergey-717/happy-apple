@@ -4,7 +4,8 @@ import Main from "./Main";
 import ListOfCards from "./ListOfCards";
 
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbwjAQTw20JKJ6uvpTL1otJY6H_fEj_KeaV_1PcsZDpCxjVL8w7m6pSDH6gQoKtUCzE/exec";
+  "https://script.google.com/macros/s/AKfycbwzica1594oOB83gFrtT4BOjCmXn_ez8yNF8ethPpOdjgjt5GKGOezSiHu4DvWg0chw/exec";
+// "https://script.google.com/macros/s/AKfycbwjAQTw20JKJ6uvpTL1otJY6H_fEj_KeaV_1PcsZDpCxjVL8w7m6pSDH6gQoKtUCzE/exec";
 
 export default function Content(props) {
   const [categories, setCategories] = useState([]);
@@ -38,6 +39,17 @@ export default function Content(props) {
     console.log(data);
   };
 
+  const setFilterProducts = async (unused) => {
+    setIsLoadingProducts(true);
+    let response = await fetch(
+      API_URL + `?category=${category}&unused=${unused}`
+    );
+    const data = await response.json();
+    setProducts(data.products);
+    setIsLoadingProducts(false);
+    console.log(data);
+  };
+
   if (error) {
     return <h1>ERROR: {error}</h1>;
   }
@@ -59,6 +71,7 @@ export default function Content(props) {
           setHandleProducts={setHandleProducts}
           setProducts={setProducts}
           category={category}
+          setFilterProducts={setFilterProducts}
         />
       )}
     </div>

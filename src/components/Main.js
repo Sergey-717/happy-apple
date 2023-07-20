@@ -1,7 +1,5 @@
 import "./style.css";
 import { useState } from "react";
-
-import loadingProd from "../../src/assets/loadingProd.GIF";
 import { Button } from "antd";
 
 export default function Main({
@@ -19,7 +17,10 @@ export default function Main({
     <div>
       <div className="main__categories">
         {isLoadingCategories ? (
-          <img src={loadingProd} className="loadingGif" alt="loading..." />
+          // <img src={loadingProd} className="loadingGif" alt="loading..." />
+          <Button type="primary" loading size="large">
+            Loading
+          </Button>
         ) : (
           categories.map((category) => (
             <Button

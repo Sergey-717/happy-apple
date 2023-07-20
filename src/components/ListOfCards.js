@@ -1,8 +1,8 @@
 import CardOfProduct from "./CardOfProduct";
 import "./style.css";
-import loadingProd from "../../src/assets/loadingProd.GIF";
 import RadioGroup from "./RadioGroup";
 import Categories from "./Categories";
+import { Card } from "antd";
 
 export default function ListOfCards({
   products,
@@ -11,6 +11,7 @@ export default function ListOfCards({
   setHandleProducts,
   setProducts,
   category,
+  setFilterProducts,
 }) {
   return (
     <div>
@@ -22,14 +23,24 @@ export default function ListOfCards({
         />
       </div>
       {isLoadingProducts ? (
-        <img src={loadingProd} className="loadingGif" alt="loading..." />
+        <div className="products">
+          {[...Array(4)].map((el, i) => (
+            <Card
+              key={i}
+              loading={isLoadingProducts}
+              style={{ boxShadow: "1px 1px 2px rgb(116, 116, 116)" }}
+            />
+          ))}
+        </div>
       ) : (
         <div className="products">
-          {isLoadingProducts && (
+          {products.length && (
             <RadioGroup
               setProducts={setProducts}
               setHandleProducts={setHandleProducts}
               products={products}
+              setFilterProducts={setFilterProducts}
+              category={category}
             />
           )}
 

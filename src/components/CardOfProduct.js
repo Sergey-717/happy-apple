@@ -1,17 +1,21 @@
 import "./style.css";
+import CustomModal from "./CustomModal";
 
 export default function CardOfProduct(product) {
   const { model, memory, color, description, price, unused } = product;
 
   return (
-    <div className="card" onClick={() => console.log("1")}>
-      <span className="card__new-border">{unused && "NEW!"}</span>
+    <div className="card">
+      {unused && <div className="card__new-marker" />}
       <h3 className="card__name">{model}</h3>
-      <hr />
-      <span className="card__description">{memory}gb </span>
-      <span className="card__description">{color}</span>
+      {/* <hr /> */}
+      {memory && <span className="card__char">{memory}gb </span>}
+      <span className="card__char">{color}</span>
       <p className="card__description">{description}</p>
-      <p className="card__price">{price}₽</p>
+      <div className="card__price">
+        <CustomModal {...product} />
+        {price}₽
+      </div>
     </div>
   );
 }
