@@ -14,6 +14,7 @@ export default function Content(props) {
   const [error, setError] = useState("");
   const [isLoadingCategories, setIsLoadingCategories] = useState(true);
   const [isLoadingProducts, setIsLoadingProducts] = useState(false);
+  const [changeCategory, setChangeCategory] = useState(false);
 
   useEffect(() => {
     (async function () {
@@ -21,7 +22,6 @@ export default function Content(props) {
         const res = await fetch(API_URL);
         const categories = await res.json();
         setCategories(categories.sheets);
-        // setProducts(categories.products);
       } catch (error) {
         setError(error.message);
       }
@@ -30,13 +30,15 @@ export default function Content(props) {
   }, []);
 
   const setHandleProducts = async (category) => {
+    setChangeCategory(true);
     setIsLoadingProducts(true);
     let response = await fetch(API_URL + `?category=${category}`);
     const data = await response.json();
+    console.log(data);
     setProducts(data.products);
     setCategory(data.params.category.toString());
     setIsLoadingProducts(false);
-    console.log(data);
+    setChangeCategory(false);
   };
 
   const setFilterProducts = async (unused) => {
@@ -47,7 +49,6 @@ export default function Content(props) {
     const data = await response.json();
     setProducts(data.products);
     setIsLoadingProducts(false);
-    console.log(data);
   };
 
   if (error) {
@@ -72,6 +73,7 @@ export default function Content(props) {
           setProducts={setProducts}
           category={category}
           setFilterProducts={setFilterProducts}
+          changeCategory={changeCategory}
         />
       )}
     </div>

@@ -24,7 +24,8 @@
 }
 
 .filters {
-  /* justify-content: space-evenly; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .filters__element {

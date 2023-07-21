@@ -33,14 +33,18 @@ const RadioGroup = ({
   setHandleProducts,
   setFilterProducts,
   category,
+  changeCategory,
 }) => {
-  const [valueNew, setValueNew] = useState();
+  const [valueNew, setValueNew] = useState("all");
   const [valueAsc, setValueAsc] = useState();
 
   const filterByNew = ({ target: { value } }) => {
-    if (value === "all") return setHandleProducts(category);
+    if (value === "all") {
+      setHandleProducts(category);
+    } else {
+      setFilterProducts(value);
+    }
     setValueNew(value);
-    setFilterProducts(value);
   };
   const sortByPrice = ({ target: { value } }) => {
     setProducts([
@@ -52,7 +56,7 @@ const RadioGroup = ({
   };
 
   return (
-    <>
+    <div className="filters">
       <Radio.Group
         options={options}
         onChange={filterByNew}
@@ -67,7 +71,7 @@ const RadioGroup = ({
         optionType="button"
         buttonStyle="solid"
       />
-    </>
+    </div>
   );
 };
 

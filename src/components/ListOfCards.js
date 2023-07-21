@@ -12,6 +12,7 @@ export default function ListOfCards({
   setProducts,
   category,
   setFilterProducts,
+  changeCategory,
 }) {
   return (
     <div>
@@ -22,6 +23,14 @@ export default function ListOfCards({
           category={category}
         />
       </div>
+      <RadioGroup
+        setProducts={setProducts}
+        setHandleProducts={setHandleProducts}
+        products={products}
+        setFilterProducts={setFilterProducts}
+        category={category}
+        changeCategory={changeCategory}
+      />
       {isLoadingProducts ? (
         <div className="products">
           {[...Array(4)].map((el, i) => (
@@ -34,16 +43,6 @@ export default function ListOfCards({
         </div>
       ) : (
         <div className="products">
-          {products.length && (
-            <RadioGroup
-              setProducts={setProducts}
-              setHandleProducts={setHandleProducts}
-              products={products}
-              setFilterProducts={setFilterProducts}
-              category={category}
-            />
-          )}
-
           {products &&
             products.map((product, i) => (
               <CardOfProduct key={i} {...product}></CardOfProduct>
